@@ -3,11 +3,11 @@ import { pickRandomColor } from "../constants/materialColors";
 
 const initialState = {
   items: [
-    { id: 1, name: "Turbonet", color: pickRandomColor() },
-    { id: 2, name: "Turbonet", color: pickRandomColor() },
-    { id: 3, name: "Turbonet", color: pickRandomColor() },
-    { id: 4, name: "Turbonet", color: pickRandomColor() },
-    { id: 5, name: "Turbonet", color: pickRandomColor() },
+    { id: 1, name: "Turbonet", color: pickRandomColor(), completed: false },
+    { id: 2, name: "Benz", color: pickRandomColor(), completed: true },
+    { id: 3, name: "MacBook Pro", color: pickRandomColor(), completed: true },
+    { id: 4, name: "Shoes", color: pickRandomColor(), completed: false },
+    { id: 5, name: "PS5", color: pickRandomColor(), completed: true },
   ],
 };
 
@@ -22,6 +22,7 @@ const itemReducer = (state = initialState, action) => {
         id: generateId(),
         name: action.payload.name,
         color: pickRandomColor(),
+        completed: action.payload.completed,
       };
 
       return { ...state, items: [...state.items, newItem] };

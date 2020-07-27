@@ -17,7 +17,7 @@ const HomeListItem = ({ name, color }) => {
             alignItems: "center",
           }}
         >
-          <Text>12</Text>
+          <Text style={{ fontSize: 30 }}>ic</Text>
         </View>
         <View
           style={{

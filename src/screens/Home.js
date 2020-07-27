@@ -2,7 +2,6 @@ import React, { useLayoutEffect } from "react";
 import { connect } from "react-redux";
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
   FlatList,
@@ -11,8 +10,11 @@ import {
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import HomeListItem from "../components/HomeListItem";
 import NoItems from "../components/NoItems";
+import { useHeaderHeight } from "@react-navigation/stack";
 
 const Home = ({ navigation, items }) => {
+  const headerHeight = useHeaderHeight();
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -29,19 +31,17 @@ const Home = ({ navigation, items }) => {
 
   return (
     <View style={styles.container}>
-      {items.length > 0 ? (
-        <FlatList
-          keyExtractor={(item) => {
-            return item.id.toString();
-          }}
-          data={items}
-          renderItem={({ item }) => (
-            <HomeListItem name={item.name} color={item.color} />
-          )}
-        />
-      ) : (
-        <NoItems />
-      )}
+      <FlatList
+        keyExtractor={(item) => {
+          return item.id.toString();
+        }}
+        ListEmptyComponent={() => <NoItems />}
+        contentContainerStyle={{ paddingTop: headerHeight }}
+        data={items}
+        renderItem={({ item }) => (
+          <HomeListItem name={item.name} color={item.color} />
+        )}
+      />
     </View>
   );
 };
