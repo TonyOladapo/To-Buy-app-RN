@@ -5,10 +5,10 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  FlatList,
   Platform,
 } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { FlatGrid } from "react-native-super-grid";
 import HomeListItem from "../components/HomeListItem";
 import NoItems from "../components/NoItems";
 
@@ -30,13 +30,10 @@ const Home = ({ navigation, items }) => {
   return (
     <View style={styles.container}>
       {items.length > 0 ? (
-        <FlatGrid
-          style={styles.list}
+        <FlatList
           keyExtractor={(item) => {
             return item.id.toString();
           }}
-          itemDimension={130}
-          spacing={8}
           data={items}
           renderItem={({ item }) => (
             <HomeListItem name={item.name} color={item.color} />
@@ -52,10 +49,6 @@ const Home = ({ navigation, items }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-
-  list: {
-    marginHorizontal: 8,
   },
 
   headerIcon: {

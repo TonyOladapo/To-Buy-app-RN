@@ -1,18 +1,39 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 
 const HomeListItem = ({ name, color }) => {
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: color,
-        paddingVertical: 16,
-        paddingHorizontal: 8,
-      }}
-    >
-      <Text>{name}</Text>
-    </View>
+    <TouchableOpacity>
+      <View style={{ flex: 1, flexDirection: "row" }}>
+        <View
+          style={{
+            flex: 1,
+            height: 150,
+            padding: 8,
+            marginVertical: 16,
+            marginLeft: 16,
+            marginRight: 8,
+            borderRadius: 7,
+            alignItems: "center",
+          }}
+        >
+          <Text>12</Text>
+        </View>
+        <View
+          style={{
+            flex: 5,
+            backgroundColor: color,
+            height: 150,
+            padding: 8,
+            marginVertical: 16,
+            marginRight: 16,
+            borderRadius: 7,
+          }}
+        >
+          <Text>{name}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
