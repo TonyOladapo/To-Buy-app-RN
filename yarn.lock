@@ -4599,13 +4599,6 @@ react-native-iphone-x-helper@^1.2.1:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
 
-react-native-reanimated@~1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.9.0.tgz#38676c99dd585504fdc7331efb45e5f48ec7339a"
-  integrity sha512-Aj+spgIHRiVv7ezGADxnSH1EoKrQRD2+XaSiGY0MiB/pvRNNrZPSJ+3NVpvLwWf9lZMOP7dwqqyJIzoZgBDt8w==
-  dependencies:
-    fbjs "^1.0.0"
-
 react-native-safe-area-context@~3.0.7:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.0.7.tgz#0f53de7a30d626d82936000f3f6db374ecc4b800"
@@ -4622,6 +4615,11 @@ react-native-super-grid@^4.0.3:
   integrity sha512-WsnK0s+hL3/hRscMcoMrCZBfUFrbDGTQbfvwPk+40ku069ebr+1czEqCmXP4UtNrpEQgysA6ge53CuuBDVY/qQ==
   dependencies:
     prop-types "^15.6.0"
+
+react-native-swipe-list-view@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-swipe-list-view/-/react-native-swipe-list-view-3.2.3.tgz#2b4aa361f26b6e55efe38a829ce122dff6c00292"
+  integrity sha512-f0B92eZiO0mCk7ZFtn8tbLz4lb+mR8xzcfjFqCVSDeXnuNw7GenUMsccGnclIOhnxnip5BHvUHavlD41peGqig==
 
 react-native-web@~0.11.7:
   version "0.11.7"
