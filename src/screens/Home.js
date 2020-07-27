@@ -1,4 +1,5 @@
 import React, { useLayoutEffect } from "react";
+import { connect } from "react-redux";
 import {
   View,
   Text,
@@ -7,12 +8,15 @@ import {
   Platform,
 } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { FlatGrid } from "react-native-super-grid";
+import HomeListItem from "../components/HomeListItem";
+import NoItems from "../components/NoItems";
 
-const Home = ({ navigation }) => {
+const Home = ({ navigation, items }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity style={style.headerIcon}>
+        <TouchableOpacity style={styles.headerIcon}>
           {Platform.OS === "ios" ? (
             <Ionicons name="ios-add" size={24} color="black" />
           ) : (
@@ -24,17 +28,34 @@ const Home = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <View style={style.container}>
-      <Text>Home</Text>
+    <View style={styles.container}>
+      {items.length > 0 ? (
+        <FlatGrid
+          style={styles.list}
+          keyExtractor={(item) => {
+            return item.id.toString();
+          }}
+          itemDimension={130}
+          spacing={8}
+          data={items}
+          renderItem={({ item }) => (
+            <HomeListItem name={item.name} color={item.color} />
+          )}
+        />
+      ) : (
+        <NoItems />
+      )}
     </View>
   );
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+  },
+
+  list: {
+    marginHorizontal: 8,
   },
 
   headerIcon: {
@@ -42,4 +63,10 @@ const style = StyleSheet.create({
   },
 });
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    items: state.items,
+  };
+};
+
+export default connect(mapStateToProps)(Home);
