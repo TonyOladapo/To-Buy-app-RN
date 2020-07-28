@@ -1,15 +1,17 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
-import { CrossPlatformIcon } from "./CrossPlatformIcon";
+import { StyleSheet } from "react-native";
+import { CrossPlatformIcon } from "./CrossPlatform/CrossPlatformIcon";
+import Touchable from "./CrossPlatform/Touchable";
 
 const HeaderAddIcon = ({ navigation }) => {
   return (
-    <TouchableOpacity
+    <Touchable
+      noFeedback
       style={styles.icon}
       onPress={() => navigation.navigate("CreateItem")}
     >
       <CrossPlatformIcon name="add" size={24} color="black" />
-    </TouchableOpacity>
+    </Touchable>
   );
 };
 
