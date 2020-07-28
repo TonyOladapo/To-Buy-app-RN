@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet } from "react-native";
 
 import Home from "./src/screens/Home";
+import CreateItem from "./src/screens/CreateItem";
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,7 @@ const Navigator = () => {
         }}
       >
         <Stack.Screen component={Home} name="Home" />
+        <Stack.Screen component={CreateItem} name="CreateItem" />
       </Stack.Navigator>
     </NavigationContainer>
   );

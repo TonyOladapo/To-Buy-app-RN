@@ -1,6 +1,6 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { connect } from "react-redux";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import HomeListItem from "../components/HomeListItem";
 import NoItems from "../components/NoItems";
 import { useHeaderHeight } from "@react-navigation/stack";
@@ -10,10 +10,11 @@ import HeaderAddIcon from "../components/HeaderAddIcon";
 
 const Home = ({ navigation, items }) => {
   const headerHeight = useHeaderHeight();
+  const [swipeOptionPressed, setSwipeOptionPressed] = useState(false);
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => <HeaderAddIcon />,
+      headerRight: () => <HeaderAddIcon navigation={navigation} />,
     });
   }, [navigation]);
 
@@ -21,11 +22,12 @@ const Home = ({ navigation, items }) => {
     <View style={styles.container}>
       <SwipeListView
         showsVerticalScrollIndicator={false}
-        style={styles.flatList}
+        swipeRowStyle={styles.swipeRow}
         data={items}
-        friction={10}
-        onLeftAction={() => console.log("left")}
-        onRightAction={() => console.log("right")}
+        rightOpenValue={-150}
+        disableRightSwipe
+        ListEmptyComponent={() => <NoItems />}
+        contentContainerStyle={{ paddingTop: headerHeight }}
         renderItem={({ item }) => (
           <HomeListItem name={item.name} color={item.color} />
         )}
@@ -33,17 +35,14 @@ const Home = ({ navigation, items }) => {
           <HomeSwipeOptions data={data} rowMap={rowMap} />
         )}
         onRowOpen={(rowKey, rowMap) => {
-          setTimeout(() => {
-            rowMap[rowKey].closeRow();
-          }, 3000);
+          !swipeOptionPressed &&
+            setTimeout(() => {
+              rowMap[rowKey].closeRow();
+            }, 3000);
         }}
-        leftOpenValue={150}
-        rightOpenValue={-150}
         keyExtractor={(item) => {
           return item.id.toString();
         }}
-        ListEmptyComponent={() => <NoItems />}
-        contentContainerStyle={{ paddingTop: headerHeight }}
       />
     </View>
   );
@@ -54,8 +53,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  flatList: {
-    marginEnd: 16,
+  swipeRow: {
+    flex: 1,
+    margin: 8,
+    borderRadius: 7,
   },
 });
 

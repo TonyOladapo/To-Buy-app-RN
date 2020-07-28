@@ -1,21 +1,11 @@
 import React from "react";
-import { View, Text, TouchableHighlight } from "react-native";
+import { View, Text, TouchableHighlight, StyleSheet } from "react-native";
 
 const HomeListItem = ({ name, color }) => {
   return (
     <TouchableHighlight>
-      <View
-        style={{ flex: 1, flexDirection: "row", backgroundColor: "#ffffff" }}
-      >
-        <View
-          style={{
-            flex: 1,
-            height: 150,
-            marginVertical: 8,
-            alignItems: "center",
-            padding: 4,
-          }}
-        >
+      <View style={styles.container}>
+        <View style={styles.leftCard}>
           <Text style={{ fontSize: 30 }}>ic</Text>
         </View>
         <View
@@ -23,10 +13,9 @@ const HomeListItem = ({ name, color }) => {
             flex: 5,
             backgroundColor: color,
             height: 150,
-            marginVertical: 8,
-            padding: 4,
             borderRadius: 7,
-            // marginEnd: 16,
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <Text>{name}</Text>
@@ -35,5 +24,22 @@ const HomeListItem = ({ name, color }) => {
     </TouchableHighlight>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "row",
+    backgroundColor: "#ffffff",
+    borderRadius: 7,
+  },
+
+  leftCard: {
+    flex: 1,
+    height: 150,
+    alignItems: "center",
+    backgroundColor: "#ffffff",
+    borderRadius: 7,
+  },
+});
 
 export default HomeListItem;

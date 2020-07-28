@@ -1,15 +1,14 @@
 import React from "react";
-import { TouchableOpacity, Platform, StyleSheet } from "react-native";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { TouchableOpacity, StyleSheet } from "react-native";
+import { CrossPlatformIcon } from "./CrossPlatformIcon";
 
-const HeaderAddIcon = () => {
+const HeaderAddIcon = ({ navigation }) => {
   return (
-    <TouchableOpacity style={styles.icon}>
-      {Platform.OS === "ios" ? (
-        <Ionicons name="ios-add" size={24} color="black" />
-      ) : (
-        <MaterialIcons name="add" size={24} color="black" />
-      )}
+    <TouchableOpacity
+      style={styles.icon}
+      onPress={() => navigation.navigate("CreateItem")}
+    >
+      <CrossPlatformIcon name="add" size={24} color="black" />
     </TouchableOpacity>
   );
 };

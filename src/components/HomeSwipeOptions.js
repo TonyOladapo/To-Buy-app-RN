@@ -1,37 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const HomeSwipeOptions = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.leftSection}>
-        <Text>Left</Text>
-      </View>
-
-      <View style={styles.rightSection}>
-        <Text>Right</Text>
-      </View>
-    </View>
+    <TouchableOpacity style={styles.container}>
+      <View></View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    height: 150,
-    marginVertical: 8,
-  },
-
-  leftSection: {
-    flex: 1,
-    backgroundColor: "#00C851",
-    justifyContent: "center",
-  },
-
-  rightSection: {
-    flex: 1,
+    borderRadius: 7,
     backgroundColor: "#ff4444",
-    justifyContent: "center",
+    flex: 1,
   },
 });
 
