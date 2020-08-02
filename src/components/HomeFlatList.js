@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { SwipeListView } from "react-native-swipe-list-view";
 import { StyleSheet } from "react-native";
@@ -10,7 +10,6 @@ import NoItems from "./NoItems";
 
 const HomeFlatList = ({ items }) => {
   const headerHeight = useHeaderHeight();
-  const [swipeDeletePressed, setSwipeDeletePressed] = useState(false);
 
   return (
     <>
@@ -33,9 +32,6 @@ const HomeFlatList = ({ items }) => {
           setTimeout(() => {
             rowMap[rowKey].closeRow();
           }, 3000);
-        }}
-        onRowDidClose={() => {
-          setSwipeDeletePressed(false);
         }}
         keyExtractor={(item) => {
           return item.id.toString();

@@ -1,5 +1,6 @@
 import shortid from "shortid";
-import { pickRandomColor } from "../constants/materialColors";
+import { pickRandomColor } from "../../constants/materialColors";
+import { updateItem } from "../actions/itemActions";
 
 const initialState = {
   items: [
@@ -26,6 +27,20 @@ const itemReducer = (state = initialState, action) => {
       };
 
       return { ...state, items: [...state.items, newItem] };
+
+    case "UPDATE_ITEM":
+      const updatedItemInfo = state.items.map((item) => {
+        item.id === action.item_id ? { ...state, ...action.updatedInfo } : item;
+      });
+
+      return { ...state, items: updatedItemInfo };
+
+    case "DELETE_ITEM":
+      const filteredItems = state.items.filter(
+        (item) => item.id !== action.payload
+      );
+
+      return { ...state, items: filteredItems };
 
     default:
       return state;
