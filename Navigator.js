@@ -20,15 +20,22 @@ const Navigator = () => {
             <BlurView
               tint="light"
               intensity={100}
-              style={StyleSheet.absoluteFill}
+              style={[StyleSheet.absoluteFill]}
             />
           ),
           headerStyle: { elevation: 0 },
           cardStyle: { backgroundColor: "#ffffff" },
+          headerTitleStyle: { fontSize: 30, fontWeight: "bold" },
         }}
       >
         <Stack.Screen component={Home} name="Home" />
-        <Stack.Screen component={CreateItem} name="CreateItem" />
+        <Stack.Screen
+          component={CreateItem}
+          name="CreateItem"
+          options={{
+            title: "Add item",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

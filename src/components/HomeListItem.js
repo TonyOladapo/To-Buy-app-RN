@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, TouchableHighlight, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import Touchable from "./CrossPlatform/Touchable";
 
 const HomeListItem = ({ name, color }) => {
   return (
-    <TouchableHighlight>
+    <Touchable>
       <View style={styles.container}>
         <View style={styles.leftCard}>
           <Text style={{ fontSize: 30 }}>ic</Text>
@@ -21,7 +22,7 @@ const HomeListItem = ({ name, color }) => {
           <Text>{name}</Text>
         </View>
       </View>
-    </TouchableHighlight>
+    </Touchable>
   );
 };
 
