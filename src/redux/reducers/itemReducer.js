@@ -1,6 +1,5 @@
 import shortid from "shortid";
 import { pickRandomColor } from "../../constants/materialColors";
-import { updateItem } from "../actions/itemActions";
 
 const initialState = {
   items: [

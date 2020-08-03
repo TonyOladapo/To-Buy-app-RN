@@ -6,19 +6,10 @@ const HomeListItem = ({ name, color }) => {
   return (
     <Touchable>
       <View style={styles.container}>
-        <View style={styles.leftCard}>
+        <View style={styles.left_section}>
           <Text style={{ fontSize: 30 }}>ic</Text>
         </View>
-        <View
-          style={{
-            flex: 5,
-            backgroundColor: color,
-            height: 150,
-            borderRadius: 7,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <View style={[styles.card, { backgroundColor: color }]}>
           <Text>{name}</Text>
         </View>
       </View>
@@ -34,7 +25,15 @@ const styles = StyleSheet.create({
     borderRadius: 7,
   },
 
-  leftCard: {
+  card: {
+    flex: 5,
+    height: 150,
+    borderRadius: 7,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  left_section: {
     flex: 1,
     height: 150,
     alignItems: "center",

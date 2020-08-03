@@ -28,11 +28,11 @@ const HomeFlatList = ({ items }) => {
         renderHiddenItem={(data, rowMap) => (
           <HomeSwipeOptions data={data} rowMap={rowMap} />
         )}
-        onRowDidOpen={(rowKey, rowMap) => {
-          setTimeout(() => {
-            rowMap[rowKey].closeRow();
-          }, 3000);
-        }}
+        // onRowDidOpen={(rowKey, rowMap) => {
+        //   setTimeout(() => {
+        //     rowMap[rowKey].closeRow();
+        //   }, 3000);
+        // }}
         keyExtractor={(item) => {
           return item.id.toString();
         }}

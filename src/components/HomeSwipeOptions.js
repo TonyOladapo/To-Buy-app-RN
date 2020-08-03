@@ -1,10 +1,16 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { CrossPlatformIcon } from "./CrossPlatform/CrossPlatformIcon";
+import { connect } from "react-redux";
+import { deleteItem } from "../redux/actions/itemActions";
 
-const HomeSwipeOptions = () => {
+const HomeSwipeOptions = ({ data, deleteItem }) => {
+  const handleDelete = () => {
+    deleteItem(data.item.id);
+  };
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={handleDelete}>
       <View style={{ flex: 4 }}></View>
       <View style={styles.icon}>
         <CrossPlatformIcon name="trash" size={40} color="white" />
@@ -29,4 +35,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeSwipeOptions;
+const mapStateToProps = (state) => ({
+  items: state.items,
+});
+
+const mapDispatchToProps = {
+  deleteItem,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeSwipeOptions);
