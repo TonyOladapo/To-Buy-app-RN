@@ -1,13 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import Touchable from "./CrossPlatform/Touchable";
 
 const HomeListItem = ({ name, color }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => {
-          console.log("Clicked");
-        }}
+      <Touchable
+        onPress={() => console.log("Clicked")}
         delayPressIn={40}
         style={styles.touchable}
       >
@@ -18,7 +17,7 @@ const HomeListItem = ({ name, color }) => {
         <View style={[styles.card, { backgroundColor: color }]}>
           <Text>{name}</Text>
         </View>
-      </TouchableOpacity>
+      </Touchable>
     </View>
   );
 };

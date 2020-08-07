@@ -1,8 +1,10 @@
 import React from "react";
-import { View, StyleSheet, Text, TouchableHighlight } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { CrossPlatformIcon } from "./CrossPlatform/CrossPlatformIcon";
 import { connect } from "react-redux";
 import { deleteItem } from "../redux/actions/itemActions";
+
+import Touchable from "./CrossPlatform/Touchable";
 
 const HomeSwipeOptions = ({ data, deleteItem }) => {
   const handleDelete = () => {
@@ -10,7 +12,7 @@ const HomeSwipeOptions = ({ data, deleteItem }) => {
   };
 
   return (
-    <TouchableHighlight onPress={handleDelete} style={styles.touchable}>
+    <Touchable highlight onPress={handleDelete} style={styles.touchable}>
       <View style={styles.container}>
         <View style={{ flex: 4 }}></View>
         <View style={styles.ic_container}>
@@ -18,7 +20,7 @@ const HomeSwipeOptions = ({ data, deleteItem }) => {
           <Text style={styles.text}>Delete</Text>
         </View>
       </View>
-    </TouchableHighlight>
+    </Touchable>
   );
 };
 

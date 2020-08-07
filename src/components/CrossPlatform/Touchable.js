@@ -1,39 +1,21 @@
 import React from "react";
-import {
-  TouchableHighlight,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  TouchableNativeFeedback,
-  Platform,
-  View,
-} from "react-native";
+import { TouchableHighlight, TouchableOpacity } from "react-native";
 
-const Touchable = ({ highlight, noFeedback, children, onPress, style }) => {
-  return Platform.OS === "android" ? (
-    //android
-    noFeedback ? (
-      <View style={style}>
-        <TouchableWithoutFeedback onPress={onPress}>
-          <View>{children}</View>
-        </TouchableWithoutFeedback>
-      </View>
-    ) : (
-      <View style={style}>
-        <TouchableNativeFeedback
-          background={TouchableNativeFeedback.Ripple("#4d4d4d")}
-          onPress={onPress}
-        >
-          <View>{children}</View>
-        </TouchableNativeFeedback>
-      </View>
-    )
-  ) : //ios
-  highlight ? (
-    <TouchableHighlight style={style} onPress={onPress}>
+const Touchable = ({ highlight, style, onPress, children, delayPressIn }) => {
+  return highlight ? (
+    <TouchableHighlight
+      delayPressIn={delayPressIn}
+      style={style}
+      onPress={onPress}
+    >
       {children}
     </TouchableHighlight>
   ) : (
-    <TouchableOpacity style={style} onPress={onPress}>
+    <TouchableOpacity
+      style={style}
+      onPress={onPress}
+      delayPressIn={delayPressIn}
+    >
       {children}
     </TouchableOpacity>
   );
