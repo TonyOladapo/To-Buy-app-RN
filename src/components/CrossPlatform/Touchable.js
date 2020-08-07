@@ -20,7 +20,7 @@ const Touchable = ({ highlight, noFeedback, children, onPress, style }) => {
     ) : (
       <View style={style}>
         <TouchableNativeFeedback
-          background={TouchableNativeFeedback.Ripple("#4d4d4d", true)}
+          background={TouchableNativeFeedback.Ripple("#4d4d4d")}
           onPress={onPress}
         >
           <View>{children}</View>

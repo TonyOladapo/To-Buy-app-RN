@@ -1,37 +1,49 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableHighlight } from "react-native";
 import { CrossPlatformIcon } from "./CrossPlatform/CrossPlatformIcon";
 import { connect } from "react-redux";
 import { deleteItem } from "../redux/actions/itemActions";
 
 const HomeSwipeOptions = ({ data, deleteItem }) => {
   const handleDelete = () => {
-    deleteItem(data.item.id);
+    deleteItem(data.id);
   };
 
   return (
-    <TouchableOpacity style={styles.container} onPress={handleDelete}>
-      <View style={{ flex: 4 }}></View>
-      <View style={styles.icon}>
-        <CrossPlatformIcon name="trash" size={40} color="white" />
-        <Text style={{ color: "white", fontSize: 15 }}>Delete</Text>
+    <TouchableHighlight onPress={handleDelete} style={styles.touchable}>
+      <View style={styles.container}>
+        <View style={{ flex: 4 }}></View>
+        <View style={styles.ic_container}>
+          <CrossPlatformIcon name="trash" size={40} color="white" />
+          <Text style={styles.text}>Delete</Text>
+        </View>
       </View>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    borderRadius: 7,
-    backgroundColor: "#ff4444",
+  touchable: {
     flex: 1,
+    borderRadius: 7,
+  },
+
+  container: {
+    flex: 1,
+    backgroundColor: "#ff4444",
+    borderRadius: 7,
     flexDirection: "row",
   },
 
-  icon: {
+  ic_container: {
     flex: 2,
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  text: {
+    color: "#ffffff",
+    fontSize: 15,
   },
 });
 

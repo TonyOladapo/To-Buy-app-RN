@@ -1,44 +1,52 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import Touchable from "./CrossPlatform/Touchable";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const HomeListItem = ({ name, color }) => {
   return (
-    <Touchable>
-      <View style={styles.container}>
-        <View style={styles.left_section}>
+    <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => {
+          console.log("Clicked");
+        }}
+        delayPressIn={40}
+        style={styles.touchable}
+      >
+        <View style={styles.ic_container}>
           <Text style={{ fontSize: 30 }}>ic</Text>
         </View>
+
         <View style={[styles.card, { backgroundColor: color }]}>
           <Text>{name}</Text>
         </View>
-      </View>
-    </Touchable>
+      </TouchableOpacity>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
+    height: 150,
     backgroundColor: "#ffffff",
     borderRadius: 7,
+  },
+
+  touchable: {
+    flex: 1,
+    flexDirection: "row",
+  },
+
+  ic_container: {
+    flex: 1,
+    borderRadius: 7,
+    alignItems: "center",
   },
 
   card: {
     flex: 5,
-    height: 150,
     borderRadius: 7,
     alignItems: "center",
     justifyContent: "center",
-  },
-
-  left_section: {
-    flex: 1,
-    height: 150,
-    alignItems: "center",
-    backgroundColor: "#ffffff",
-    borderRadius: 7,
   },
 });
 

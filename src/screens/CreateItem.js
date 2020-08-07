@@ -9,13 +9,24 @@ const CreateItem = () => {
   const viewPager = createRef();
   const [currentPage, setCurrentPage] = useState(0);
 
+  const getNextPage = () => {
+    const page = currentPage + 1;
+  };
+
   return (
     <View style={[styles.container, { marginTop: headerHeight }]}>
+      {currentPage === 0 ? (
+        <Text>Item details</Text>
+      ) : currentPage === 1 ? (
+        <Text>page 2</Text>
+      ) : (
+        <Text>page 3</Text>
+      )}
       <ViewPager
         ref={viewPager}
         style={styles.viewPager}
         initialPage={0}
-        // scrollEnabled={false}
+        scrollEnabled={false}
         pageMargin={16}
         onPageSelected={(page) => {
           setCurrentPage(page.nativeEvent.position);
@@ -30,7 +41,7 @@ const CreateItem = () => {
 
       {/* <Button
         onPress={(e) => {
-          // viewPager.current?.setPage(1);
+          viewPager.current?.setPage(currentPage + 1);
         }}
         title="Btn"
       /> */}

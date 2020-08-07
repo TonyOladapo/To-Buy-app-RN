@@ -26,7 +26,7 @@ const HomeFlatList = ({ items }) => {
           <HomeListItem name={item.name} color={item.color} />
         )}
         renderHiddenItem={(data, rowMap) => (
-          <HomeSwipeOptions data={data} rowMap={rowMap} />
+          <HomeSwipeOptions data={data.item} rowMap={rowMap} />
         )}
         // onRowDidOpen={(rowKey, rowMap) => {
         //   setTimeout(() => {
@@ -44,8 +44,8 @@ const HomeFlatList = ({ items }) => {
 const styles = StyleSheet.create({
   swipeRow: {
     flex: 1,
-    margin: 8,
-    borderRadius: 7,
+    marginVertical: 8,
+    marginHorizontal: 16,
   },
 });
 

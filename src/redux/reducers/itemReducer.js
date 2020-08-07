@@ -8,6 +8,11 @@ const initialState = {
     { id: 3, name: "Item 3", color: pickRandomColor(), completed: true },
     { id: 4, name: "Item 4", color: pickRandomColor(), completed: false },
     { id: 5, name: "Item 5", color: pickRandomColor(), completed: true },
+    { id: 6, name: "Item 1", color: pickRandomColor(), completed: false },
+    { id: 7, name: "Item 2", color: pickRandomColor(), completed: true },
+    { id: 8, name: "Item 3", color: pickRandomColor(), completed: true },
+    { id: 9, name: "Item 4", color: pickRandomColor(), completed: false },
+    { id: 10, name: "Item 5", color: pickRandomColor(), completed: true },
   ],
 };
 
