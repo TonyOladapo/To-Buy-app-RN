@@ -9,6 +9,7 @@ import Home from "./src/screens/Home";
 import CreateItem from "./src/screens/CreateItem";
 import { CrossPlatformIcon } from "./src/components/CrossPlatform/CrossPlatformIcon";
 import Touchable from "./src/components/CrossPlatform/Touchable";
+import ItemDetails from "./src/screens/ItemDetails";
 
 const Stack = createStackNavigator();
 
@@ -58,6 +59,7 @@ const Navigator = () => {
             title: "Add item",
           }}
         />
+        <Stack.Screen component={ItemDetails} name="ItemDetails" />
       </Stack.Navigator>
     </NavigationContainer>
   );

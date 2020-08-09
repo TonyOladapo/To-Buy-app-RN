@@ -1,12 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Touchable from "./CrossPlatform/Touchable";
+import { useNavigation } from "@react-navigation/native";
 
-const HomeListItem = ({ name, color }) => {
+const HomeListItem = ({ item, color }) => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Touchable
-        onPress={() => console.log("Clicked")}
+        onPress={() =>
+          navigation.navigate("ItemDetails", {
+            item,
+          })
+        }
         delayPressIn={40}
         style={styles.touchable}
       >
@@ -15,7 +22,7 @@ const HomeListItem = ({ name, color }) => {
         </View>
 
         <View style={[styles.card, { backgroundColor: color }]}>
-          <Text>{name}</Text>
+          <Text>{item.name}</Text>
         </View>
       </Touchable>
     </View>

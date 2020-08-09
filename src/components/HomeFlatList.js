@@ -23,7 +23,7 @@ const HomeFlatList = ({ items }) => {
         ListEmptyComponent={() => <NoItems />}
         contentContainerStyle={{ paddingTop: headerHeight }}
         renderItem={({ item }) => (
-          <HomeListItem name={item.name} color={item.color} />
+          <HomeListItem item={item} color={item.color} />
         )}
         renderHiddenItem={(data, rowMap) => (
           <HomeSwipeOptions data={data.item} rowMap={rowMap} />
